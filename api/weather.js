@@ -1,13 +1,17 @@
 exports.get = function(request, response) {
-    performRequest('/forecast', 'GET', '51.566827' , '-0.124969', function(data) {
-        response.send(statusCodes.OK, { message : data} );
-    });
+
+    if (request.query.lat != null && request.query.lon != null) {
+        performRequest('/forecast', 'GET', request.query.lat , request.query.lat, function(data) {
+            response.send(statusCodes.OK, { message : data} );
+        });
+    }
+    else response.send(statusCodes.BAD_REQUEST, { message : 'Bad Parameters' });
 };
 
 function performRequest(endpoint, method, latitude, longitude, success) {
     var req = require('request');
     var host = 'api.forecast.io';
-    var apiKey = '<<API KEY>>';  
+    var apiKey = 'fce0e1261fcf5165a51c242c3c43c0fe';  
   
   var url = 'https://' + host + endpoint + '/' + apiKey + '/' + latitude + ',' + longitude;
   
