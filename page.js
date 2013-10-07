@@ -73,8 +73,14 @@ $(function() {
     }
 
 
-    function logIn() {
+    function logInFB() {
         client.login("facebook").then(refreshAuthDisplay, function (error) {
+            alert(error);
+        });
+    }
+    
+    function logInTwitter() {
+        client.login("twitter").then(refreshAuthDisplay, function (error) {
             alert(error);
         });
     }
@@ -91,7 +97,8 @@ $(function() {
     $(function () {
         refreshAuthDisplay();
         $('#summary').html('<strong>You must login to access data.</strong>');
-        $("#logged-out button").click(logIn);
+        $("#logged-out button #fb").click(logInFB);
+        $("#logged-out button #twitter").click(logInTwitter);
         $("#logged-in button").click(logOut);
     });
 });
