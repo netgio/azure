@@ -97,8 +97,8 @@ $(function() {
     $(function () {
         refreshAuthDisplay();
         $('#summary').html('<strong>You must login to access data.</strong>');
-        $("#logged-out button #fb").click(logInFB);
-        $("#logged-out button #twitter").click(logInTwitter);
+        $("#fb").click(logInFB);
+        $("#twitter").click(logInTwitter);
         $("#logged-in button").click(logOut);
     });
 });
