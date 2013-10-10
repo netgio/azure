@@ -11,7 +11,7 @@ exports.get = function(request, response) {
 function performRequest(endpoint, method, latitude, longitude, success) {
     var req = require('request');
     var host = 'api.forecast.io';
-    var apiKey = 'fce0e1261fcf5165a51c242c3c43c0fe';  
+    var apiKey = 'xxxxxx';  
   
   var url = 'https://' + host + endpoint + '/' + apiKey + '/' + latitude + ',' + longitude;
   
